@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --background: #08090d;
+  --foreground: #f7f3eb;
+  --gold: #f0c65a;
+  --danger: #ff2f4f;
+  --muted: #9aa8bb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(255, 47, 79, 0.42);
+  color: #fff;
+}
+
+.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.13), rgba(255, 47, 79, 0.055), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 26px 90px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(22px);
+}
+
+.gold-glow {
+  box-shadow: 0 0 0 1px rgba(240, 198, 90, 0.22), 0 24px 85px rgba(255, 47, 79, 0.18), 0 12px 55px rgba(240, 198, 90, 0.1);
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,47,79,.08) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(circle at 50% 35%, black, transparent 72%);
+}
+
+.premium-link {
+  position: relative;
+}
+
+.premium-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 1px;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  background: linear-gradient(90deg, transparent, var(--danger), var(--gold), transparent);
+  transition: transform .35s ease;
+}
+
+.premium-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.aggressive-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.aggressive-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(110deg, rgba(255, 47, 79, 0.18), transparent 28%, rgba(240, 198, 90, 0.1) 72%, transparent);
+}
+
+.impact-title {
+  text-shadow: 0 0 42px rgba(255, 47, 79, 0.24), 0 0 70px rgba(240, 198, 90, 0.08);
+}
+
+.diagonal-cut {
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 0 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
